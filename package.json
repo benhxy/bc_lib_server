@@ -1,0 +1,18 @@
+{
+  "name": "bc_lib_server",
+  "version": "1.0.0",
+  "description": "tracker server of a blockchain based community library",
+  "main": "./src/www",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/www"
+  },
+  "author": "",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "circular-json": "^0.4.0",
+    "debug": "^3.1.0",
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1"
+  }
+}
