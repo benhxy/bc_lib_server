@@ -9,13 +9,15 @@ var ip_checker = require("is-ip"); //to check ipv4 or ipv6
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+var config = require("../config");
+
 //data structures
-var cache_capacity = 50;
+var cache_capacity = config.cache_capacity;
 var node_list = [];
 
 app.post("/api/nodes", function(req, res) {
 
-  console.log("entered route");
+  console.log("Entered POST /api/nodes");
 
   //check incomplete information
   if (!req.body.username || !req.body.public_key) {
@@ -26,11 +28,15 @@ app.post("/api/nodes", function(req, res) {
       message: "Missing node information. Please provide username and public_key."
     });
   }
-  //deep copy request body
-  var new_node = JSON.parse(JSON.stringify(req.body));
+
+  //get node username and pk
+  var new_node = {
+    username: req.body.username,
+    public_key: req.body.public_key
+  };
+
   //deep copy node list for sending response
   var node_list_copy = JSON.parse(JSON.stringify(node_list));
-  console.log(node_list);
 
   //analyze ip address
   if (ip_checker.v6(req.connection.remoteAddress)) {
