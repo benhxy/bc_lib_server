@@ -1,18 +1,19 @@
 {
   "name": "bc_lib_server",
   "version": "1.0.0",
-  "description": "tracker server of a blockchain based community library",
+  "description": "tracker server of a blockchain based P2P community library",
   "main": "./src/www",
   "private": true,
   "scripts": {
     "start": "node ./src/www"
   },
-  "author": "",
+  "author": "Ben Hu <ben.huxiaoye@gmail.com>",
   "dependencies": {
     "body-parser": "^1.18.2",
     "circular-json": "^0.4.0",
     "debug": "^3.1.0",
     "express": "^4.16.2",
+    "forever": "^0.15.3",
     "is-ip": "^2.0.0",
     "nodemon": "^1.12.1"
   }
